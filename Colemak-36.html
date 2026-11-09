@@ -1,0 +1,190 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Colemak-36</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: four stacked layer plates, each a column-staggered split board with thumb clusters; notes below */
+:root{
+  --bg:#eef1f4; --plate:#dfe4ea; --cap:#fbfcfd; --cap-edge:#c3ccd6;
+  --fg:#18202a; --muted:#66727f; --faint:#a8b2bd;
+  --l0:#4b5a6b; --l1:#0f8a7e; --l2:#c07a12; --l3:#7c4dc4;
+  --mod-bg:#e7ebf0;
+  --display:"Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --k:clamp(29px, 7.6vw, 56px);
+  --g:clamp(3px, 0.9vw, 7px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161b; --plate:#1b2128; --cap:#262e37; --cap-edge:#0b0e12;
+  --fg:#e6ebf0; --muted:#94a0ad; --faint:#55606c;
+  --l0:#9fb0c2; --l1:#3cc7b8; --l2:#f0a43a; --l3:#ac87f0; --mod-bg:#1f262e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161b; --plate:#1b2128; --cap:#262e37; --cap-edge:#0b0e12;
+  --fg:#e6ebf0; --muted:#94a0ad; --faint:#55606c;
+  --l0:#9fb0c2; --l1:#3cc7b8; --l2:#f0a43a; --l3:#ac87f0; --mod-bg:#1f262e; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--display)}
+.wrap{max-width:900px;margin:0 auto;padding-block:32px 56px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:28px}
+header h1{font-size:clamp(26px,5vw,38px);font-weight:700;margin:0;letter-spacing:-.01em;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);font-size:15px;max-width:62ch;line-height:1.5}
+.layer{--c:var(--l0);background:var(--plate);border-radius:14px;padding:18px 16px 22px;display:flex;flex-direction:column;gap:14px}
+.layer h2{margin:0;font-size:19px;font-weight:700;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.layer h2 .tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--c);padding:3px 7px;border-radius:5px}
+.layer h2 .how{font-size:13px;font-weight:500;color:var(--muted)}
+.scroll{overflow-x:auto}
+.board{display:flex;justify-content:center;gap:calc(var(--k)*.7);min-width:max-content;margin:0 auto;padding:8px 8px 12px}
+.half{display:grid;grid-template-columns:repeat(5,var(--k));gap:var(--g)}
+.key{width:var(--k);height:var(--k);border-radius:calc(var(--k)*.16);background:var(--cap);border:1px solid var(--cap-edge);box-shadow:0 2px 0 var(--cap-edge);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;position:relative;text-align:center;line-height:1.05}
+.key .m{font-size:calc(var(--k)*.32);font-weight:600}
+.key .m.sm{font-size:calc(var(--k)*.22)}
+.key .sh{position:absolute;top:calc(var(--k)*.05);left:calc(var(--k)*.11);font-family:var(--mono);font-size:calc(var(--k)*.21);font-weight:600;color:var(--muted);line-height:1}
+.key .s{font-family:var(--mono);font-size:calc(var(--k)*.15);color:var(--muted)}
+.key.mod{background:var(--mod-bg)}
+.key.mod .m{font-size:calc(var(--k)*.21);font-family:var(--mono)}
+.key.trns{background:transparent;border-style:dashed;box-shadow:none;border-color:var(--faint)}
+.key.trns .m{color:var(--faint);font-weight:500}
+.key.none{background:transparent;border:1px dashed var(--faint);box-shadow:none;opacity:.45}
+.key.hl{border-color:var(--c);box-shadow:0 2px 0 var(--c)}
+.key.hl .m{color:var(--c)}
+.key.lay{color:var(--bg)}
+.key.lay.t1{background:var(--l1);border-color:var(--l1);box-shadow:0 2px 0 var(--l1)}
+.key.lay.t2{background:var(--l2);border-color:var(--l2);box-shadow:0 2px 0 var(--l2)}
+.key.lay.t3{background:var(--l3);border-color:var(--l3);box-shadow:0 2px 0 var(--l3)}
+.key.lay .m{font-size:calc(var(--k)*.24);font-family:var(--mono)}
+.key.lay .s{color:inherit;opacity:.8}
+.key.held{outline:2px solid var(--c);outline-offset:2px}
+.thumbs{display:contents}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border-radius:4px;border:1px solid var(--cap-edge);background:var(--cap)}
+.sw.mod{background:var(--mod-bg)} .sw.tr{background:transparent;border-style:dashed;border-color:var(--faint)}
+.sw.hl{border:2px solid var(--fg)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.notes section{min-width:0}
+.notes h3{font-size:15px;margin:0 0 8px}
+.notes p,.notes li{font-size:14px;line-height:1.55;color:var(--fg)}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+table{border-collapse:collapse;font-size:13px;width:100%}
+td{padding:4px 6px;border-bottom:1px solid var(--plate)}
+td:first-child{font-family:var(--mono);color:var(--muted);width:3.5em}
+td:nth-child(2){font-size:18px;width:2em;text-align:center}
+td:nth-child(3){font-family:var(--mono);color:var(--muted)}
+code{font-family:var(--mono);font-size:.9em}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Colemak-36</h1>
+    <p>Each half has 3 rows of 5 keys plus 3 thumb keys. Dashed keys pass through to the layer below; faded outlines are unassigned.</p>
+  </header>
+  <div class="legend">
+    <span><i class="sw"></i>Character</span>
+    <span><i class="sw mod"></i>Modifier / control</span>
+    <span><i class="sw tr"></i>Transparent</span>
+    <span><i class="sw hl"></i>New on this layer</span>
+    <span><b style="font-family:var(--mono);color:var(--fg)">!</b>Small corner glyph = with Shift</span>
+  </div>
+  <div id="layers"></div>
+
+  <div class="notes">
+    <section>
+      <h3>Unicode macros (layer 3)</h3>
+      <table id="macros"></table>
+      <p style="color:var(--muted);font-size:13px">Typed via <code>Ctrl+Shift+U</code> + hex + Enter (Linux / GTK input).</p>
+    </section>
+    <section>
+      <h3>Good to know</h3>
+      <ul>
+        <li>AltGr keys assume the <b>US International (AltGr)</b> OS layout: AltGr+Q = ä, S = ß, P = ö, Y = ü, E = é.</li>
+        <li>Macro <b>M6</b> («) sends its key-up before the key-down, unlike the others. It may not trigger the Unicode prompt; swap those two steps in Vial if « doesn't type.</li>
+        <li>Macro <b>M11</b> (Super+Shift+N, then types “mail”) is defined but not placed on any key.</li>
+        <li>Five tap dances (! / Alt, % / Ctrl, ^ / RCtrl, ) / Alt, AltGr / Alt) are configured but unused. No combos or key overrides are set; layers 4–9 and the encoders are empty.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script>
+const L = [
+ [["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_Q","KC_W","KC_F","KC_P","KC_BSPACE"],["KC_NO","KC_A","KC_S","KC_R","KC_T","KC_ENTER"],["KC_NO","KC_Z","KC_X","KC_C","KC_K","KC_RALT"],["KC_NO","KC_NO","KC_LALT","KC_LGUI","KC_LSHIFT","KC_NO"],["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_O","KC_Y","KC_U","KC_L","KC_DELETE"],["KC_NO","KC_SPACE","KC_I","KC_E","KC_N","KC_TAB"],["KC_NO","KC_H","KC_J","KC_V","KC_M","MO(3)"],["KC_NO","KC_NO","KC_LCTRL","MO(2)","MO(1)","KC_NO"]],
+ [["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_GRAVE","KC_QUOTE","KC_SCOLON","KC_B","KC_TRNS"],["KC_NO","KC_COMMA","KC_DOT","KC_SLASH","KC_D","KC_TRNS"],["KC_NO","KC_LBRACKET","KC_RBRACKET","KC_BSLASH","KC_G","KC_TRNS"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_TRNS"],["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_EQUAL","KC_3","KC_2","KC_1","LCTL(KC_C)"],["KC_NO","KC_MINUS","KC_6","KC_5","KC_4","LCTL(KC_V)"],["KC_NO","KC_0","KC_9","KC_8","KC_7","LCTL(KC_X)"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_NO"]],
+ [["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_PGUP","KC_HOME","KC_UP","KC_END","KC_TRNS"],["KC_NO","KC_PGDOWN","KC_LEFT","KC_DOWN","KC_RIGHT","KC_TRNS"],["KC_NO","KC_INSERT","LCTL(KC_LEFT)","KC_NO","LCTL(KC_RIGHT)","KC_TRNS"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_TRNS"],["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","KC_F4","KC_F3","KC_F2","KC_F1","LCTL(KC_Z)"],["KC_NO","KC_F8","KC_F7","KC_F6","KC_F5","LCTL(KC_Y)"],["KC_NO","KC_F12","KC_F11","KC_F10","KC_F9","KC_ESCAPE"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_NO"]],
+ [["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","M0","M1","M2","KC_NO","KC_TRNS"],["KC_NO","RALT(KC_Q)","RALT(KC_S)","KC_NO","KC_NO","KC_TRNS"],["KC_NO","M3","M4","M5","KC_NO","KC_TRNS"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_TRNS"],["KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO"],["KC_NO","RALT(KC_P)","KC_NO","RALT(KC_Y)","KC_NO","KC_VOLU"],["KC_NO","M10","KC_NO","RALT(KC_E)","KC_NO","KC_VOLD"],["KC_NO","M9","M8","M7","M6","KC_TRNS"],["KC_NO","KC_NO","KC_TRNS","KC_TRNS","KC_TRNS","KC_NO"]]
+];
+const META = [
+ {name:"Base", tag:"Layer 0", how:"Colemak-style letters, always active"},
+ {name:"Symbols & Numbers", tag:"Layer 1", how:"Hold right thumb, inner key", held:"MO(1)"},
+ {name:"Navigation & F-keys", tag:"Layer 2", how:"Hold right thumb, middle key", held:"MO(2)"},
+ {name:"International", tag:"Layer 3", how:"Hold right pinky, bottom inner key", held:"MO(3)"}
+];
+const MACRO = {M0:["„","201E"],M1:["“","201C"],M2:["”","201D"],M3:["‚","201A"],M4:["‘","2018"],M5:["’","2019"],M6:["«","00AB"],M7:["»","00BB"],M8:["‹","2039"],M9:["›","203A"],M10:["–","2013"]};
+const ALTGR = {Q:"ä",S:"ß",P:"ö",Y:"ü",E:"é"};
+const SIMPLE = {GRAVE:"`",QUOTE:"'",SCOLON:";",COMMA:",",DOT:".",SLASH:"/",LBRACKET:"[",RBRACKET:"]",BSLASH:"\\",EQUAL:"=",MINUS:"-",UP:"↑",DOWN:"↓",LEFT:"←",RIGHT:"→"};
+const MODS = {BSPACE:"Bksp",ENTER:"Enter",RALT:"AltGr",LALT:"Alt",LGUI:"Super",LSHIFT:"Shift",LCTRL:"Ctrl",DELETE:"Del",SPACE:"Space",TAB:"Tab",PGUP:"PgUp",PGDOWN:"PgDn",HOME:"Home",END:"End",INSERT:"Ins",ESCAPE:"Esc",VOLU:"Vol +",VOLD:"Vol −"};
+const SH = {GRAVE:"~",QUOTE:'"',SCOLON:":",COMMA:"<",DOT:">",SLASH:"?",LBRACKET:"{",RBRACKET:"}",BSLASH:"|",EQUAL:"+",MINUS:"_","1":"!","2":"@","3":"#","4":"$","5":"%","6":"^","7":"&","8":"*","9":"(","0":")"};
+const ALTGR_SH = {Q:"Ä",S:"§",P:"Ö",Y:"Ü",E:"É"};
+const CTL = {C:"Copy",V:"Paste",X:"Cut",Z:"Undo",Y:"Redo",LEFT:"Word ←",RIGHT:"Word →"};
+
+function label(code){
+  if(code==="KC_NO") return {k:"none"};
+  if(code==="KC_TRNS") return {k:"trns"};
+  let m;
+  if(m=code.match(/^MO\((\d)\)$/)) return {k:"lay", t:+m[1], m:"L"+m[1], s:"hold"};
+  if(MACRO[code]) return {k:"char", m:MACRO[code][0], s:code};
+  if(m=code.match(/^RALT\(KC_(\w)\)$/)) return {k:"char", m:ALTGR[m[1]]||m[1], s:"AltGr+"+m[1], sh:ALTGR_SH[m[1]]};
+  if(m=code.match(/^LCTL\(KC_(\w+)\)$/)) return {k:"mod", m:CTL[m[1]]||("Ctrl+"+m[1]), s:"Ctrl+"+m[1].replace("LEFT","←").replace("RIGHT","→")};
+  const n = code.replace(/^KC_/,"");
+  if(/^[A-Z0-9]$/.test(n)) return {k:"char", m:n, sh:SH[n]};
+  if(/^F\d+$/.test(n)) return {k:"mod", m:n};
+  if(SIMPLE[n]) return {k:"char", m:SIMPLE[n], sh:SH[n]};
+  if(MODS[n]) return {k:"mod", m:MODS[n]};
+  return {k:"mod", m:n};
+}
+// Display positions: left half outer→inner = matrix cols 1..5; right half is mirrored.
+const STAGGER = [10,4,0,3,6]; // px-ish offsets for a column-staggered look (pinky→inner)
+function cell(layer, r, c){ return L[layer][r][c]; }
+function keyEl(layer, r, c, staggerIdx){
+  const code = cell(layer,r,c);
+  let info = label(code), cls = ["key"];
+  if(info.k==="trns"){ const b = label(L[0][r][c]); info = {k:"trns", m:b.m||"", s:""}; }
+  cls.push(info.k==="char"? "" : info.k);
+  if(info.k==="lay") cls.push("t"+info.t);
+  if(layer>0 && (info.k==="char"||info.k==="mod")) cls.push("hl");
+  if(META[layer].held && L[0][r][c]===META[layer].held) cls.push("held");
+  const el = document.createElement("div");
+  el.className = cls.filter(Boolean).join(" ");
+  if(staggerIdx!=null) el.style.transform = `translateY(calc(var(--k) * ${STAGGER[staggerIdx]/56}))`;
+  if(info.k!=="none"){
+    const mm = document.createElement("span"); mm.className="m"+((info.m||"").length>3 && info.k==="char"?" sm":""); mm.textContent=info.m; el.appendChild(mm);
+    if(info.s){ const s=document.createElement("span"); s.className="s"; s.textContent=info.s; el.appendChild(s); }
+    if(info.sh && info.k!=="trns"){ const h=document.createElement("span"); h.className="sh"; h.textContent=info.sh; el.appendChild(h); }
+  }
+  el.title = code;
+  return el;
+}
+const root = document.getElementById("layers");
+root.style.cssText="display:flex;flex-direction:column;gap:22px";
+// Which layer holds each layer active (so the activating key is outlined on its own layer too)
+for(let li=0; li<4; li++){
+  const sec = document.createElement("section");
+  sec.className="layer"; sec.style.setProperty("--c", `var(--l${li})`);
+  sec.innerHTML = `<h2><span class="tag">${META[li].tag}</span>${META[li].name}<span class="how">${META[li].how}</span></h2>`;
+  const sc = document.createElement("div"); sc.className="scroll";
+  const board = document.createElement("div"); board.className="board";
+  const left = document.createElement("div"), right = document.createElement("div");
+  left.className = right.className = "half";
+  for(let r=1;r<=3;r++){
+    for(let c=1;c<=5;c++) left.appendChild(keyEl(li, r, c, c-1));
+    for(let c=5;c>=1;c--) right.appendChild(keyEl(li, r+5, c, c-1));
+  }
+  // thumbs: left matrix cols 2,3,4 → grid cols 3-5; right mirrored → grid cols 1-3
+  const ls = document.createElement("div"); ls.style.gridColumn="1 / 3"; left.appendChild(ls);
+  [2,3,4].forEach(c=>{ const k=keyEl(li,4,c); k.style.marginTop="calc(var(--k)*.35)"; left.appendChild(k); });
+  [4,3,2].forEach(c=>{ const k=keyEl(li,9,c); k.style.marginTop="calc(var(--k)*.35)"; right.appendChild(k); });
+  board.append(left,right); sc.appendChild(board); sec.appendChild(sc); root.appendChild(sec);
+}
+const tb = document.getElementById("macros");
+Object.entries(MACRO).forEach(([k,[g,h]])=>{ tb.insertAdjacentHTML("beforeend",`<tr><td>${k}</td><td>${g}</td><td>U+${h}</td></tr>`); });
+</script>
+
+</body></html>
